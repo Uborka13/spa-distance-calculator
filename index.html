@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>MIL Calculator</h2>
+
+  <label>Initial MIL:</label>
+  <input id="initial" type="number"><br><br>
+
+  <label>Distance (m):</label>
+  <input id="distance" type="number"><br><br>
+
+  <button onclick="calc()">Calculate</button>
+
+  <p id="out"></p>
+
+  <script>
+    function calc() {
+      const d1 = 200.0, mil1 = 533.0;
+      const d2 = 600.0, mil2 = 267.0;
+
+      const initial = parseInt(document.getElementById("initial").value);
+      const distance = parseInt(document.getElementById("distance").value);
+
+      const mil = mil1 + (mil2 - mil1) * ((distance - d1) / (d2 - d1));
+      const result = Math.round(mil) - initial;
+
+      document.getElementById("out").innerText =
+        "Final MIL to dial: " + result;
+    }
+  </script>
+</body>
+</html>
