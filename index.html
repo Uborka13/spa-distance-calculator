@@ -1,32 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIL Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
 <body>
-  <h2>MIL Calculator</h2>
+  <div class="container">
+    <h1>MIL Calculator</h1>
 
-  <label>Initial MIL:</label>
-  <input id="initial" type="number"><br><br>
+    <label>MIL Offset</label>
+    <input id="offset" type="number" inputmode="numeric" placeholder="-/+" />
 
-  <label>Distance (m):</label>
-  <input id="distance" type="number"><br><br>
+    <label>Distance (meters)</label>
+    <input id="distance" type="number" inputmode="numeric" />
+    <div class="hint" id="hint"></div>
 
-  <button onclick="calc()">Calculate</button>
+    <div class="result" id="output"></div>
 
-  <p id="out"></p>
+    <!-- Calibration toggle -->
+    <div class="calibration">
+      <button class="toggle" id="toggleCal">⚙ Calibration</button>
 
-  <script>
-    function calc() {
-      const d1 = 200.0, mil1 = 533.0;
-      const d2 = 600.0, mil2 = 267.0;
+      <div class="calibration-content" id="calibrationContent">
+        <label>Shortest (meters)</label>
+        <input id="d1" type="number" value="200" />
 
-      const initial = parseInt(document.getElementById("initial").value);
-      const distance = parseInt(document.getElementById("distance").value);
+        <label>Shortest (mil)</label>
+        <input id="mil1" type="number" value="533" />
 
-      const mil = mil1 + (mil2 - mil1) * ((distance - d1) / (d2 - d1));
-      const result = Math.round(mil) - initial;
+        <label>Furthest (meters)</label>
+        <input id="d2" type="number" value="600" />
 
-      document.getElementById("out").innerText =
-        "Final MIL to dial: " + result;
-    }
-  </script>
-</body>
-</html>
+        <label>Furthest (mil)</label>
+        <input id="mil2" type="number" value="267" />
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</bod
