@@ -20,7 +20,7 @@ body {
 
 h1 {
   margin-bottom: 24px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 label {
@@ -43,6 +43,7 @@ input {
 
 .result {
   margin-top: 24px;
+  margin-bottom: 24px;
   font-size: 1.4rem;
   font-weight: bold;
 }
