@@ -73,7 +73,7 @@ function calculate() {
   const mil =
     mil1 + (mil2 - mil1) * ((distance - d1) / (d2 - d1));
 
-  const result = Math.round(mil) + offset;
+  const result = Math.round(mil) - offset;
 
   output.innerText = `Final MIL: ${result}`;
 }
