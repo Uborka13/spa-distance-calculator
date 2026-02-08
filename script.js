@@ -46,7 +46,7 @@ offsetInput.addEventListener("input", calculate);
 function getOffset() {
   const value = parseInt(offsetInput.value || 0);
   const signed = isNegative ? -value : value;
-  return signed;
+  return -signed;
 }
 
 function calculate() {
@@ -91,7 +91,7 @@ function calculate() {
   const mil =
     mil1 + (mil2 - mil1) * ((distance - d1) / (d2 - d1));
 
-  const result = Math.round(mil) - offset;
+  const result = Math.round(mil) + offset;
 
   output.innerText = `Final MIL: ${result}`;
 }
