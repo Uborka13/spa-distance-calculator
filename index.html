@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,21 +11,57 @@
 <body>
   <div class="container">
     <h1>MIL SPA Calculator</h1>
+    <button class="mode-toggle" id="modeToggle">
+      Switch to Slider Mode
+    </button>
 
     <div class="result" id="output"></div>
 
-    <label>MIL Offset</label>
-    <input id="offset" type="number" inputmode="numeric" placeholder="-/+" />
+    <div id="inputMode">
+      <label>MIL Offset</label>
+      
 
-    <label>Distance (meters)</label>
-    <input id="distance" type="number" inputmode="numeric" />
-    <div class="hint" id="hint"></div>
+      <div class="offset-group">
+        <label class="sign-label">+</label>
+        <label class="switch">
+          <input type="checkbox" id="offsetSign">
+          <span class="slider"></span>
+        </label>
+        <label class="sign-label">-</label>
+      </div>
+      <input id="offset" type="number" inputmode="decimal" placeholder="Offset">
+      <label>Distance (meters)</label>
+      <input id="distance" type="number" inputmode="numeric" placeholder="Meters"/>
+      <div class="hint" id="hint"></div>
+    </div>
+    <div id="gearMode" class="hidden">
+      <div class="gear-group">
+        <label>Offset</label>
+        <div class="knob" id="offsetKnob">
+          <div class="knob-value" id="offsetValue">0</div>
+        </div>
+      </div>
+
+      <div class="gear-group">
+        <label>Distance</label>
+        <div class="knob" id="distanceKnob">
+          <div class="knob-value" id="distanceValue">0</div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Calibration toggle -->
     <div class="calibration">
       <button class="toggle" id="toggleCal">⚙ Calibration</button>
 
       <div class="calibration-content" id="calibrationContent">
+        <label>Offset min</label>
+        <input id="offsetMin" type="number" value="-200" />
+
+        <label>Offset max</label>
+        <input id="offsetMax" type="number" value="200" />
+
         <label>Shortest (meters)</label>
         <input id="d1" type="number" value="200" />
 
@@ -40,5 +77,5 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
-</bod
+  <script type="module" src="js/main.js"></script>
+  </bod
