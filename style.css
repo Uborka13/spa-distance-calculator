@@ -30,7 +30,7 @@ label {
   opacity: 0.85;
 }
 
-input {
+input:not(.offset-input) {
   width: 100%;
   padding: 14px;
   font-size: 1.1rem;
@@ -83,3 +83,38 @@ input {
   color: #9ca3af;
 }
 
+.offset-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.sign-button {
+  flex: 0 0 50px;
+  /* fixed width 50px, no grow, no shrink */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.offset-input {
+  flex: 1 1 auto;
+  height: 50px;
+  font-size: 18px;
+  text-align: center;
+  box-sizing: border-box;
+  min-width: 60px;
+  margin: 0;
+  padding: 0 8px;
+}
+
+@media (max-width: 320px) {
+  .offset-group {
+    gap: 4px;
+  }
+}

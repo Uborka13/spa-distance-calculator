@@ -1,4 +1,5 @@
 const offsetInput = document.getElementById("offset");
+const offsetSignButton = document.getElementById("offsetSignButton");
 const distanceInput = document.getElementById("distance");
 const output = document.getElementById("output");
 const hint = document.getElementById("hint");
@@ -31,8 +32,25 @@ toggleBtn.addEventListener("click", () => {
   mil2Input
 ].forEach(input => input.addEventListener("input", calculate));
 
+// Sign button event listener
+let isNegative = false;
+offsetSignButton.addEventListener("click", () => {
+  isNegative = !isNegative;
+  offsetSignButton.textContent = isNegative ? "-" : "+";
+  calculate()
+});
+
+// update signed value whenever input changes
+offsetInput.addEventListener("input", calculate);
+
+function getOffset() {
+  const value = parseInt(offsetInput.value || 0);
+  const signed = isNegative ? -value : value;
+  return signed;
+}
+
 function calculate() {
-  const offset = parseInt(offsetInput.value) || 0;
+  const offset = getOffset();
   const distance = parseInt(distanceInput.value);
 
   const d1 = parseFloat(d1Input.value);

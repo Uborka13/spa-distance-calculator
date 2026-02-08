@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MIL Calculator</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
 
 <body>
@@ -14,10 +15,13 @@
     <div class="result" id="output"></div>
 
     <label>MIL Offset</label>
-    <input id="offset" type="number" inputmode="numeric" placeholder="-/+" />
+    <div class="offset-group">
+      <button id="offsetSignButton" class="sign-button">+</button>
+      <input id="offset" type="text" class="offset-input" inputmode="numeric" placeholder="Offset">
+    </div>
 
-    <label>Distance (meters)</label>
-    <input id="distance" type="number" inputmode="numeric" />
+    <label>Distance</label>
+    <input id="distance" type="number" inputmode="numeric" placeholder="Meters"/>
     <div class="hint" id="hint"></div>
 
     <!-- Calibration toggle -->
@@ -41,4 +45,4 @@
   </div>
 
   <script src="script.js"></script>
-</bod
+  </bod
